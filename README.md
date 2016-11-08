@@ -3,8 +3,8 @@ Projet tutoré : Gestion des absences
 
 PHP, Cordova, Responsive Design, Material Design Lite
 
-<a href="https://cordova.apache.org/" target="_blank" >Cordova</a> <br/>
-<a href="" target="_blank">Material Design Lite</a>
+[Cordova](https://cordova.apache.org/)
+[Material Design Lite](https://getmdl.io/)
 
 A faire : 
-- Création d'un modèle Entité/Association dà partir base de données fournie
+- [ ] Créer un **modèle Entité/Association** à partir de la base de données fournie
