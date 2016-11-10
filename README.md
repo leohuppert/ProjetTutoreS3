@@ -7,4 +7,4 @@ PHP, Cordova, Responsive Design, Material Design Lite
 [Material Design Lite](https://getmdl.io/)
 
 A faire : 
-- [ ] Créer un **modèle Entité/Association** à partir de la base de données fournie
+- [x] Créer un **modèle Entité/Association** à partir de la base de données fournie
