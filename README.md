@@ -9,3 +9,5 @@ PHP, Cordova, Responsive Design, Material Design Lite
 A faire : 
 - [x] Créer un **modèle Entité/Association** à partir de la base de données fournie
 - [x] Réflechir à une première interface
+
+Adapter le fichier db.ini en fonction de sa bdd
