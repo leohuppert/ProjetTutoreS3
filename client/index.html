@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Connexion</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/mdl/material.min.css">
+	<script src="assets/mdl/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/script_connexion.js"></script>
+</head>
+<body>
+
+	<div id="reponse" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button">
+            <i class="material-icons">clear</i>
+        </button>
+    </div>
+
+	<div id="connexion">
+		<h1>Connexion</h1>
+
+		<form action="login.php" method="post" id="form_connexion" name=form_connexion>
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input class="mdl-textfield__input" type="text" id="login" name="login">
+    			<label class="mdl-textfield__label" for="login">Identifiant</label>
+  			</div>
+
+  			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    			<input class="mdl-textfield__input" type="password" id="password" name="password">
+    			<label class="mdl-textfield__label" for="password">Mot de passe</label>
+  			</div>
+  			<br>
+
+  			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" type="submit" id="valider">
+  			Valider</button>
+		</form>
+	
+	</div>
+
+</body>
+</html>
