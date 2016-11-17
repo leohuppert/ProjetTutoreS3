@@ -8,4 +8,4 @@ PHP, Cordova, Responsive Design, Material Design Lite
 
 A faire : 
 - [x] Créer un **modèle Entité/Association** à partir de la base de données fournie
-- [ ] Réflechir à une première interface
+- [x] Réflechir à une première interface
