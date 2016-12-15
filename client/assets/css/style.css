@@ -1,0 +1,64 @@
+#index {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: #2c3e50;
+}
+
+.app {
+	padding: 5px;
+	border: 2px solid #2c3e50;
+	border-radius: 10px;
+	background-color: white;
+	width: 500px;
+	max-width: 100%;
+}
+
+.app h1 {
+	font-size: 30px;
+}
+
+body {
+	background-color: #2c3e50;
+}
+
+#accueil {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	background-color: #2c3e50;
+}
+
+#planning {
+	padding: 5px;
+	border: 2px solid #2c3e50;
+	border-radius: 10px;
+	background-color: white;
+	width: 500px;
+	max-width: 100%;
+}
+
+
+#planning h1 {
+	font-size: 30px;
+}
+
+#container_cours {
+	height: 500px;
+	overflow: auto;
+}
+
+.cours {
+	display: inline-block;
+	border: 2px solid black;
+	padding: 5px;
+	width: 35%;
+	margin: 2px;
+	color: black;
+}
+
+.cours:hover {
+	background-color: #bdc3c7;
+}

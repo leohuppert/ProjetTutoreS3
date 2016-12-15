@@ -1,5 +1,9 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 session_start();
+
+
+
 require_once 'db.php';
 
 $reponse = array();
@@ -27,6 +31,7 @@ if(!empty($_POST))
 					if($row['password'] == $pass)
 					{
 						$reponse = array('reponse' => 'ok');
+						$_SESSION['id'] = $row['login'];
 					}
 					else
 					{
@@ -55,4 +60,3 @@ if(!empty($_POST))
 }
 
 echo json_encode($reponse);
-?>

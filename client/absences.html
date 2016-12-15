@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gestion des absences </title>
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="assets/mdl/material.min.css">
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+  <link rel="stylesheet" type="text/css" href="assets/css/default.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/default.time.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/default.date.css">
+
+  <script src="assets/mdl/material.min.js"></script>
+  <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+
+  <!-- SCRIPT DATE ET TIME PICKER -->
+  <script src="assets/js/jquery.1.7.0.js"></script>
+  <script src="assets/js/picker.js"></script>
+  <script src="assets/js/picker.time.js"></script>
+  <script src="assets/js/picker.date.js"></script>
+
+  <script type="text/javascript" src="assets/js/script_absents.js"></script>
+
+  <!-- <script type="text/javascript">
+      $(document).ready(function(json) {
+        $.ajax({
+          url: 'http://localhost/projetTutore/serveur/get_absents.php',
+          type: 'GET',
+          dataType: 'json',
+          success: function(json) {
+               for (var i=0;i<json.reponse.length;i++)
+              {
+                  $('#donnees').append('<tr><td><label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="checkbox-'+i+'"><input type="checkbox" id="checkbox-'+i+'"class="mdl-checkbox__input"></label></td><td style="text-align:left;"><span class="mdl-data-table__label add-table-content" title="nom">'+json.reponse[i]['nom']+'</span></td><td class="mdl-data-table__cell--non-numeric"><span class="mdl-data-table__label add-table-content" title="prenom">'+json.reponse[i]['prenom']+'</span></td></tr>');
+            
+                 componentHandler.upgradeAllRegistered();
+              }
+          } 
+        })
+      }
+      );
+    </script> -->
+</head>
+<body>
+    <div id="mainAbsences">
+      <input id="input_date" class="mdl-textfield__input datepicker_date" name="date" type="text" value="Date">
+
+      <script type="text/javascript">
+        var $input = $( '.datepicker_date' ).pickadate({
+        })
+       /* console.log($input); */ 
+      </script>
+ 
+      <!-- HEURE DE DEBUT -->
+      <fieldset>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input datepicker_hdeb" id="input_hdeb" class=datepicker value="Heure de début" name="time">
+        </div>
+        <script type="text/javascript">
+          var $input = $( '.datepicker_hdeb' ).pickatime({
+          })
+        </script>
+
+        <!-- HEURE DE FIN -->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input datepicker_hfin"  id="input_hfin" class=datepicker value="Heure de fin" name="time">
+        </div>
+        <script type="text/javascript">
+          var $input = $( '.datepicker_hfin' ).pickatime({
+          })
+        </script>
+      </fieldset>
+
+      <!-- Spinner -->
+      <div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+      <!-- Table des étudiants -->
+      <table class="mdl-data-table mdl-shadow--2dp">
+        <thead>
+          <tr>
+            <th>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="table-header">
+                <input type="checkbox" id="table-header" class="mdl-checkbox__input" />
+              </label>
+            </th>
+            <th class="mdl-data-table__cell--non-numeric">Nom</th>
+            <th class="mdl-data-table__cell--non-numeric">Prénom</th>
+          </tr>
+        </thead>
+
+        <tbody id="donnees">
+          <!-- <tr id="1">
+            <td>
+              <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="et1">
+                <input type="checkbox" id="et1" class="mdl-checkbox__input" />
+              </label>
+            </td>
+            <td class="mdl-data-table__cell--non-numeric">ELEVE</td>
+            <td class="mdl-data-table__cell--non-numeric">Test</td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <button id="btn">VALIDER</button>
+    
+    </div>
+</body>
+</html>
