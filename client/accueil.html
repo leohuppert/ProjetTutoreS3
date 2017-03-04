@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accueil</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="assets/mdl/material.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/cours.css">
+
+	<script src="assets/mdl/material.min.js"></script>
+	<script type="text/javascript" src="assets/js/url_serveur.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="assets/js/select_cours.js"></script>
+	<script type="text/javascript" src="assets/js/script_cours.js"></script>
+	<script type="text/javascript" src="assets/js/verifie_saisie.js"></script>
+	<script type="text/javascript" src="assets/js/update_numero.js"></script>
+	<script type="text/javascript">
+	$.ajax({
+			url: urlServeur + 'recupere_numero.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function(json){
+	 			initSemaine(parseInt(json.num,10))
+			}
+	});
+	</script>
+
+</head>
+<body id="accueil">
+
+	<div id="planning">
+		<div class="mdl-spinner mdl-js-spinner"></div>
+		<h1 id="titre"></h1>
+		<div id="container_cours" style="display: none"></div>
+		<div id="aucuncours"></div>
+		<div id="btnapres"></div>
+		<div id="btnavant"></div>
+	</div>
+
+</body>
+</html>

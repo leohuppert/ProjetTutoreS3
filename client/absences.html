@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Saisie des absences</title>
+
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="assets/mdl/material.min.css">
+
+  <!-- DIALOG MDL -->
+  <script type="text/javascript" src="assets/node_modules/dialog-polyfill/dialog-polyfill.js"></script>
+  <link rel="stylesheet" type="text/css" href="assets/node_modules/dialog-polyfill/dialog-polyfill.css">
+
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/absences.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/default.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/default.time.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/default.date.css">
+
+  <script src="assets/mdl/material.min.js"></script>
+	<script type="text/javascript" src="assets/js/url_serveur.js"></script>
+  <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
+
+  <!-- SCRIPTS TIME PICKER -->
+  <script src="assets/js/jquery.1.7.0.js"></script>
+  <script src="assets/js/picker.js"></script>
+  <script src="assets/js/picker.time.js"></script>
+</head>
+<body id="absences">
+
+	<!-- Erreur -->
+	<div id="reponse" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button">
+            <i class="material-icons">clear</i>
+        </button>
+    </div>
+
+  <div id="mainAbsences">
+
+    <div id="top">
+
+	      <div id="titre"></div>
+
+	      <!-- JOUR -->
+	      <div id="boutons-jours" class="btnJour">
+	        <button id=btnLun class="mdl-button mdl-button--raised mdl-js-button">L</button>
+	        <button id=btnMar class="mdl-button mdl-button--raised mdl-js-button">M</button>
+	        <button id=btnMer class="mdl-button mdl-button--raised mdl-js-button">M</button>
+	        <button id=btnJeu class="mdl-button mdl-button--raised mdl-js-button">J</button>
+	        <button id=btnVen class="mdl-button mdl-button--raised mdl-js-button">V</button>
+	        <button id=btnSam class="mdl-button mdl-button--raised mdl-js-button">S</button>
+	      </div>
+
+	      <fieldset>
+	           <!-- HEURE DE DEBUT -->
+	        <div class="mdl-textfield1 mdl-js-textfield mdl-textfield--floating-label">
+	          <input class="mdl-textfield__input1 datepicker_hdeb"  id="input_hdeb" class=timepicker value="Heure de début" name="time">
+	        </div>
+
+	        <!-- HEURE DE FIN -->
+	        <div class="mdl-textfield1 mdl-js-textfield mdl-textfield--floating-label">
+	          <input class="mdl-textfield__input1 datepicker_hfin"  id="input_hfin" class=datepicker value="Heure de fin" name="time">
+	        </div>
+	      </fieldset>
+
+				<p id="p-compteur">Nombre d'absents : <span id="compteur-absents"></span></p>
+
+	      <!-- SWITCH TROMBINOSCOPE -->
+	      <div id="div-switch-trombi">
+	        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-trombi">
+	          <input type="checkbox" id="switch-trombi" class="mdl-switch__input">
+	          <span class="mdl-switch__label">Trombinoscope</span>
+	        </label>
+
+				</div>
+      </div>
+
+      <br>
+
+      <div id="main">
+
+        <!-- Spinner -->
+        <div class="mdl-spinner mdl-js-spinner is-active"></div>
+
+        <!-- Partie Liste -->
+        <div id="liste">
+
+          <!-- Table des étudiants -->
+          <table class="mdl-data-table mdl-shadow--2dp">
+            <thead>
+              <tr>
+                <th>
+                  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="table-header" style="display: none;">
+                    <input type="checkbox" id="table-header" class="mdl-checkbox__input" />
+                  </label>
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">Nom</th>
+                <th class="mdl-data-table__cell--non-numeric">Prénom</th>
+              </tr>
+            </thead>
+            <!-- Contenu de la liste -->
+            <tbody id="donnees"></tbody>
+          </table>
+
+        </div>
+
+        <!-- Partie trombinoscope -->
+        <div id="trombi" style="display: none;">
+
+          <!-- Trombi -->
+          <table class="mdl-data-table mdl-js-data-table" id="table-trombi">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">Etudiant</th>
+                <th class="mdl-data-table__cell--non-numeric">Photo</th>
+              </tr>
+            </thead>
+            <!-- Contenu -->
+            <tbody id="donnees-trombi"></tbody>
+          </table>
+        </div>
+
+        <br>
+
+        <div id="switch-absents">
+          <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-absent">
+            <input type="checkbox" id="switch-absent" class="mdl-switch__input">
+            <span class="mdl-switch__label">Aucun absent</span>
+          </label>
+        </div>
+
+        <br><br>
+
+        <!-- Commentaire -->
+        <div class="mdl-textfield mdl-js-textfield">
+          <textarea class="mdl-textfield__input" type="text" rows= "2" id="input-commentaire" ></textarea>
+          <label class="mdl-textfield__label" for="input-commentaire" id="label-commentaire">Saisir un commentaire...</label>
+        </div>
+
+        <div>
+          <button id="btnRetour" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button mdl-button--colored dialog-button">Retour</button>
+          <button id="btnValider" class="mdl-button mdl-button--raised mdl-js-ripple-effect mdl-js-button mdl-button--colored dialog-button">Valider</button>
+        </div>
+        
+
+        <dialog class="mdl-dialog">
+          <h4 class="mdl-dialog__title">Valider la saisie</h4>
+          <div class="mdl-dialog__content">
+            <!-- CONTENU DIALOG -->
+            <div id="contenu_dialog"></div>
+            <div class="mdl-dialog__actions">
+              <button type="button" class="mdl-button valider">Valider</button>
+              <button type="button" class="mdl-button close">Annuler</button>
+            </div>
+          </div>
+        </dialog>
+
+      </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+		<script type="text/javascript" src="assets/js/compteur_absents.js"></script>
+    <script type="text/javascript" src="assets/js/select_jour.js"></script>
+    <script type="text/javascript" src="assets/js/script_absents.js"></script>
+    <script type="text/javascript" src="assets/js/script_absents_trombi.js"></script>
+    <script type="text/javascript" src="assets/js/recupere_absents.js"></script>
+    <script type="text/javascript" src="assets/js/recupere_jour.js"></script>
+    <script type="text/javascript" src="assets/js/validation_absents.js"></script>
+    <script type="text/javascript" src="assets/js/script_cours.js"></script>
+    <script type="text/javascript" src="assets/js/recupere_heure.js"></script>
+    <script type="text/javascript" src="assets/js/commentaire.js"></script>
+
+
+  </body>
+  </html>

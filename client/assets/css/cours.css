@@ -1,0 +1,19 @@
+.non-saisi {
+	background-color: #2ecc71;
+}
+
+.deja-saisi {
+	background-color: #f39c12;
+}
+
+.bloque {
+	background-color: #c0392b;
+}
+
+.non-saisi:hover {
+	background-color: #27ae60;
+}
+
+.deja-saisi:hover {
+	background-color: #e67e22;
+}
